@@ -22,7 +22,7 @@ public class DeptTest {
 		//DeptDTO dto = new DeptDTO(6, "77777", "77777");
 		//service.insert(dto);
 		//service.update(dto);
-		//service.delete(6);
+		//service.delete(6); 
 		try {
 			service.tx();
 		} catch (Exception e) {
