@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 기본설정 -->
+	<mvc:annotation-driven/>
+	<mvc:default-servlet-handler/>
+	
+	
+	<!-- 1.직접 JSP 요청 -->
+	<mvc:view-controller path="/main" view-name="main"/>
+	
+	
+	<!-- 3.  -->
+	<mvc:resources location="/WEB-INF/imgage/" mapping="/imgage/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+	
+	<!-- 2. jSP 전담 ViewResolver -->	
+   
+    <mvc:view-resolvers>
+    <mvc:bean-name>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    </mvc:bean-name>
+    <mvc:jsp prefix="WEB-INF/views/" suffix=".jsp"/>
+    </mvc:view-resolvers>
+	<bean id="aaa" class="com.controller.TestController" />	
+</beans>
